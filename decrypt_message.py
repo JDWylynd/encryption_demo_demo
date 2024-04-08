@@ -29,12 +29,13 @@ def decrypt_message(msg, key):
 
 def main():
     # Load the private key
+    private_key = load_private_key("encryption_demo_demo/my_private_key.pem")
 
     # Open the encrypted message from the external file
-
+    with open("encrypted_message.bin", "rb") as file:
+        encrypted_date = file.read()
     # Decrypt the message with the private key
-
-    pass
+    decrypted_msg = decrypt_message(encrypted_date, private_key)
 
 if __name__ == "__main__":
     main()

@@ -29,15 +29,17 @@ def encrypt_message(msg, key):
 
 def main():
     # Obtain the value of the public key
-    public_key = load_public_key('my_public_key.pem')
+    public_key = load_public_key('encryption_demo_demo/my_public_key.pem')
 
     # Create a secret message and print it to the screen
-
+    message = b"Be sure to drink your ovaltine."
+    print(f"Unencrypted message:\n{message}\n\n")
     # Encrypt your message
-
+    encrypted_msg = encrypt_message(message, public_key)
+    print(f"Encrypted message:\n{encrypted_msg}\n\n")
     # Write the encrypted message to a file
-
-    pass
+    with open("encrypted_message.bin", "wb") as file:
+        file.write(encrypted_msg)
 
 if __name__ == "__main__":
     main()
